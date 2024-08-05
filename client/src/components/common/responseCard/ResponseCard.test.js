@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import ResponseCard from './ResponseCard';
-
+import { describe, it, expect} from 'vitest';
 describe('ResponseCard Component', () => {
 	const mockIcon = <svg />;
 

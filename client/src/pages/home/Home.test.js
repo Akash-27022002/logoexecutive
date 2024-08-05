@@ -1,6 +1,6 @@
 import {fireEvent, render, screen} from '@testing-library/react';
 import Home from './Home';
-
+import { describe, it, expect} from 'vitest';
 describe('Welcome Page', () => {
 	const renderWelcomePage = () => {
 		return render(<Home />);

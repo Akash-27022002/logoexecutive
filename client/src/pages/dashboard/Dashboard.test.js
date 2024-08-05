@@ -3,7 +3,7 @@ import {render, screen, fireEvent, waitFor} from '@testing-library/react';
 import Dashboard from './Dashboard';
 import {UserContext} from '../../contexts/UserContext';
 import {formatDate} from '../../utils/helpers';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('Dashboard Component', () => {
 	const mockUserData = {
 		firstName: 'Anoop',
@@ -31,7 +31,7 @@ describe('Dashboard Component', () => {
 			updatedAt: '2024-04-11T10:24:38.501Z',
 		},
 	};
-	const fetchUserData = jest.fn();
+	const fetchUserData = vi.fn();
 	const renderDashboard = (userData = mockUserData) => {
 		render(
 			<UserContext.Provider value={{userData, fetchUserData}}>
@@ -238,7 +238,7 @@ describe('Dashboard Component', () => {
 
 	it('copies API key to clipboard', async () => {
 		global.navigator.clipboard = {
-			writeText: jest.fn(),
+			writeText: vi.fn(),
 		};
 		renderDashboard();
 		const descriptionInput = screen.getByLabelText('Description For API Key');

@@ -1,6 +1,6 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import {useApi} from './useApi';
-
+import { describe, it, expect } from 'vitest';
 describe('useApi', () => {
 	it('should return initial state', () => {
 		const {result} = renderHook(() => useApi({}));

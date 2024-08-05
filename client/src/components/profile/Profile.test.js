@@ -4,7 +4,7 @@ import Profile from './Profile';
 import {AuthContext} from '../../contexts/AuthContext';
 import {UserContext} from '../../contexts/UserContext';
 import {BrowserRouter} from 'react-router-dom';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('Profile component', () => {
 	const mockUserData = {
 		firstName: 'Anoop',
@@ -40,7 +40,7 @@ describe('Profile component', () => {
 			updatedAt: '2024-04-11T10:24:38.501Z',
 		},
 	};
-	const fetchUserData = jest.fn();
+	const fetchUserData = vi.fn();
 	const renderProfile = () => {
 		render(
 			<AuthContext.Provider value={true}>

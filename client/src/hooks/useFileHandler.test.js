@@ -1,7 +1,7 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import useFileHandler from './useFileHandler';
-
-global.URL.createObjectURL = jest.fn();
+import { describe, it, expect, vi } from 'vitest';
+global.URL.createObjectURL = vi.fn();
 
 describe('useFileHandler', () => {
 	it('should return initial state', () => {

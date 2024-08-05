@@ -2,6 +2,7 @@ import React from 'react';
 import {render, screen, fireEvent, waitFor} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import ForgotPassword from './ForgotPassword';
+import { describe, it, expect } from 'vitest';
 
 describe('ForgotPassword Component', () => {
 	it('renders the ForgotPassword form correctly', () => {

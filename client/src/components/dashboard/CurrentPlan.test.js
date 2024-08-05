@@ -1,6 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import CurrentPlan from './CurrentPlan';
 import {SubscriptionTypes} from '../../constants';
+import { describe, it, expect } from 'vitest';
 
 describe('CurrentPlan', () => {
 	const subscriptionData = {

@@ -1,6 +1,6 @@
 import {render, fireEvent, screen} from '@testing-library/react';
 import CustomInput from './CustomInput';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('CustomInput', () => {
 	it('renders correctly', () => {
 		render(
@@ -17,7 +17,7 @@ describe('CustomInput', () => {
 	});
 
 	it('handles value change', () => {
-		const handleChange = jest.fn();
+		const handleChange = vi.fn();
 		render(
 			<CustomInput
 				type='text'

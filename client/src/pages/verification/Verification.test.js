@@ -4,15 +4,15 @@ import {render, waitFor, screen} from '@testing-library/react';
 import Home from '../home/Home';
 import Verification from './Verification';
 import * as router from 'react-router';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('VerificationStatus Component', () => {
-	const navigate = jest.fn();
+	const navigate = vi.fn();
 	beforeEach(() => {
-		jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
+		vi.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
 	});
 
 	afterAll(() => {
-		jest.restoreAllMocks();
+		vi.restoreAllMocks();
 	});
 
 	it('should navigate to welcome page when token is not provided', async () => {

@@ -3,6 +3,7 @@ import {render, fireEvent, screen, waitFor} from '@testing-library/react';
 import {server} from '../../mocks/server.js';
 import {rest} from 'msw';
 import PreviewModal from './PreviewModal';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('PreviewModal', () => {
 	const file = new Blob([''], {type: 'image/jpeg'});
@@ -11,9 +12,9 @@ describe('PreviewModal', () => {
 		url: 'http://example.com/test.jpg',
 		data: file,
 	};
-	const mockHandleImageNameChange = jest.fn();
-	const mockSetIsModalOpen = jest.fn();
-	const mockFetchUploadedImages = jest.fn();
+	const mockHandleImageNameChange = vi.fn();
+	const mockSetIsModalOpen = vi.fn();
+	const mockFetchUploadedImages = vi.fn();
 
 	it('renders correctly', () => {
 		render(

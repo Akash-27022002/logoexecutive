@@ -2,8 +2,8 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import ScrollToAnchor from './ScrollToAnchor';
-
-window.HTMLElement.prototype.scrollIntoView = jest.fn();
+import { describe, it, expect, vi } from 'vitest';
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
 describe('ScrollToAnchor', () => {
 	const targetElementId = 'target-element';

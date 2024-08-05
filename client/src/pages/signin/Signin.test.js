@@ -3,10 +3,11 @@ import {render, screen} from '@testing-library/react';
 import {AuthContext} from '../../contexts/AuthContext';
 import {MemoryRouter, Navigate} from 'react-router-dom';
 import Signin from './Signin';
+import { describe, it, expect, vi } from 'vitest';
 
-jest.mock('react-router-dom', () => ({
-	...jest.requireActual('react-router-dom'),
-	Navigate: jest.fn(() => null),
+vi.mock('react-router-dom', () => ({
+	...vi.requireActual('react-router-dom'),
+	Navigate: vi.fn(() => null),
 }));
 
 describe('Signin component', () => {

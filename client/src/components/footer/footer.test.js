@@ -1,9 +1,11 @@
 import {render, screen, fireEvent} from '@testing-library/react';
 import Footer from './Footer';
 import {BrowserRouter} from 'react-router-dom';
+import { describe, it, expect, vi } from 'vitest';
+
 describe('Footer', () => {
 	it('should render the footer component', () => {
-		const windowSpy = jest.spyOn(window, 'open');
+		const windowSpy = vi.spyOn(window, 'open');
 		render(
 			<BrowserRouter>
 				<Footer />

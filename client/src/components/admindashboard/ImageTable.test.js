@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-
+import { describe, expect } from 'vitest';
 import ImageTable from './ImageTable';
 import {imageTableHeadings} from '../../constants';
 
