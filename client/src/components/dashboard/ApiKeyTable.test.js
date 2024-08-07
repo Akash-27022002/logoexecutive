@@ -1,6 +1,6 @@
 import {render, fireEvent, screen} from '@testing-library/react';
 import ApiKeyTable from './ApiKeyTable';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('ApiKeyTable', () => {
 	const keys = [
 		{
@@ -33,7 +33,7 @@ describe('ApiKeyTable', () => {
 	});
 
 	it('handles copy to clipboard', () => {
-		const handleCopyToClipboard = jest.fn();
+		const handleCopyToClipboard = vi.fn();
 		render(
 			<ApiKeyTable
 				keys={keys}
@@ -48,7 +48,7 @@ describe('ApiKeyTable', () => {
 	});
 
 	it('shows copied icon when key is copied', () => {
-		const handleCopyToClipboard = jest.fn();
+		const handleCopyToClipboard = vi.fn();
 		render(
 			<ApiKeyTable
 				keys={keys}
@@ -96,7 +96,7 @@ describe('ApiKeyTable', () => {
 	});
 
 	it('remove key when delete is confirmed', () => {
-		const deleteKey = jest.fn();
+		const deleteKey = vi.fn();
 		render(
 			<ApiKeyTable
 				keys={keys}
@@ -116,7 +116,7 @@ describe('ApiKeyTable', () => {
 	});
 
 	it('does not remove key when delete is cancelled', () => {
-		const deleteKey = jest.fn();
+		const deleteKey = vi.fn();
 		render(
 			<ApiKeyTable
 				keys={keys}

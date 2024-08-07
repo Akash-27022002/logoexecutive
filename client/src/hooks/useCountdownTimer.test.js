@@ -1,27 +1,27 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import useCountdownTimer from './useCountdownTimer';
-
-jest.useFakeTimers();
+import { describe, it, expect, vi } from 'vitest';
+vi.useFakeTimers();
 
 describe('useCountdownTimer', () => {
 	afterEach(() => {
-		jest.clearAllTimers();
-		jest.useRealTimers();
+		vi.clearAllTimers();
+		vi.useRealTimers();
 	});
 	beforeEach(() => {
-		jest.useFakeTimers();
+		vi.useFakeTimers();
 	});
 	it('should navigate to "/home" when countdown reaches 0', () => {
-		const navigateMock = jest.fn();
+		const navigateMock = vi.fn();
 		let countdown = 3;
-		const setCountdownMock = jest.fn().mockImplementation((value) => {
+		const setCountdownMock = vi.fn().mockImplementation((value) => {
 			countdown = value;
 		});
 		const {result} = renderHook(() =>
 			useCountdownTimer(true, navigateMock, countdown, setCountdownMock),
 		);
 		act(() => {
-			jest.advanceTimersByTime(3000);
+			vi.advanceTimersByTime(3000);
 		});
 		setTimeout(() => {
 			expect(result.current).toBe(0);
@@ -30,16 +30,16 @@ describe('useCountdownTimer', () => {
 	});
 
 	it('should not navigate when isSuccess is false', () => {
-		const navigateMock = jest.fn();
+		const navigateMock = vi.fn();
 		let countdown = 3;
-		const setCountdownMock = jest.fn().mockImplementation((value) => {
+		const setCountdownMock = vi.fn().mockImplementation((value) => {
 			countdown = value;
 		});
 		const {result} = renderHook(() =>
 			useCountdownTimer(false, navigateMock, countdown, setCountdownMock),
 		);
 		act(() => {
-			jest.advanceTimersByTime(3000);
+			vi.advanceTimersByTime(3000);
 		});
 		setTimeout(() => {
 			expect(result.current).toBe(3);
@@ -48,16 +48,16 @@ describe('useCountdownTimer', () => {
 	});
 
 	it('should update countdown correctly', () => {
-		const navigateMock = jest.fn();
+		const navigateMock = vi.fn();
 		let countdown = 3;
-		const setCountdownMock = jest.fn().mockImplementation((value) => {
+		const setCountdownMock = vi.fn().mockImplementation((value) => {
 			countdown = value;
 		});
 		const {result} = renderHook(() =>
 			useCountdownTimer(true, navigateMock, countdown, setCountdownMock),
 		);
 		act(() => {
-			jest.advanceTimersByTime(2000);
+			vi.advanceTimersByTime(2000);
 		});
 		setTimeout(() => {
 			expect(result.current).toBe(1);
@@ -65,16 +65,16 @@ describe('useCountdownTimer', () => {
 	});
 
 	it('should clear interval and navigate when countdown reaches 0', () => {
-		const navigateMock = jest.fn();
+		const navigateMock = vi.fn();
 		let countdown = 1;
-		const setCountdownMock = jest.fn().mockImplementation((value) => {
+		const setCountdownMock = vi.fn().mockImplementation((value) => {
 			countdown = value;
 		});
 		const {result} = renderHook(() =>
 			useCountdownTimer(true, navigateMock, countdown, setCountdownMock),
 		);
 		act(() => {
-			jest.advanceTimersByTime(1000);
+			vi.advanceTimersByTime(1000);
 		});
 		setTimeout(() => {
 			expect(result.current).toBe(0);

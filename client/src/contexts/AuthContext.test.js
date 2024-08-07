@@ -3,7 +3,7 @@ import {render, waitFor, act, screen} from '@testing-library/react';
 import {AuthContext, AuthProvider} from './AuthContext';
 import {server} from '../mocks/server';
 import {rest} from 'msw';
-
+import { describe, expect, vi } from 'vitest';
 const TestComponent = () => {
 	const {isAuthenticated, logout} = useContext(AuthContext);
 	return (
@@ -65,7 +65,7 @@ describe('AuthProvider', () => {
 			}),
 		);
 
-		const consoleSpy = jest.spyOn(console, 'error');
+		const consoleSpy = vi.spyOn(console, 'error');
 
 		render(
 			<AuthProvider>

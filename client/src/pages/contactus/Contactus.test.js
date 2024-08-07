@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 import Contactus from './Contactus';
 import {UserContext} from '../../contexts/UserContext';
 import {AuthContext} from '../../contexts/AuthContext';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('Contact Us Component', () => {
 	const mockUserData = {
@@ -40,7 +41,7 @@ describe('Contact Us Component', () => {
 			updatedAt: '2024-04-11T10:24:38.501Z',
 		},
 	};
-	const fetchUserData = jest.fn();
+	const fetchUserData = vi.fn();
 	const renderContactUs = () => {
 		render(
 			<AuthContext.Provider

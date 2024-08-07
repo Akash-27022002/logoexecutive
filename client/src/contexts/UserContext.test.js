@@ -3,6 +3,7 @@ import {UserProvider, UserContext} from './UserContext';
 import {rest} from 'msw';
 import {useContext, useEffect} from 'react';
 import {server} from '../mocks/server';
+import { describe, expect} from 'vitest';
 
 const TestComponent = () => {
 	const {userData, loading, error, fetchUserData} = useContext(UserContext);

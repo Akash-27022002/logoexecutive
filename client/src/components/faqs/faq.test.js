@@ -1,5 +1,6 @@
 import {render, screen, fireEvent} from '@testing-library/react';
 import FAQs from './FAQs';
+import { describe, it, expect } from 'vitest';
 const faqsMockData = [
 	{
 		title: 'How to create API Keys ?',

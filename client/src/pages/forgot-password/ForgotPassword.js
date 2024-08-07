@@ -67,7 +67,7 @@ function ForgotPassword() {
 						{response?.message}
 					</p>
 				)}
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} noValidate>
 					<CustomInput
 						label='Enter Your Email'
 						value={userEmail}

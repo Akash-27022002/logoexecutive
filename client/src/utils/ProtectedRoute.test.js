@@ -4,7 +4,7 @@ import ProtectedRoute from './ProtectedRoute';
 import {BrowserRouter, MemoryRouter, Route, Routes} from 'react-router-dom';
 import {UserContext} from '../contexts/UserContext';
 import {Account, AdminDashboard, Dashboard, Home, Signin} from '../pages';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('Protected Route', () => {
 	const mockUserData = {
 		firstName: 'Anoop',
@@ -40,7 +40,7 @@ describe('Protected Route', () => {
 			updatedAt: '2024-04-11T10:24:38.501Z',
 		},
 	};
-	const fetchUserData = jest.fn();
+	const fetchUserData = vi.fn();
 	it('renders dashboard when user is authenticated', () => {
 		render(
 			<AuthContext.Provider value={{isAuthenticated: true}}>

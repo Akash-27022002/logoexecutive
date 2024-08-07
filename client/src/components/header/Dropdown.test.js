@@ -3,12 +3,12 @@ import {BrowserRouter} from 'react-router-dom';
 import Dropdown from './Dropdown';
 import {AuthContext} from '../../contexts/AuthContext';
 import * as router from 'react-router';
-
+import { describe, test, expect, vi } from 'vitest';
 describe('Dropdown test', () => {
-	const navigate = jest.fn();
-	const mockLogout = jest.fn();
-	const toggleShowAccount = jest.fn();
-	const handleLogout = jest.fn();
+	const navigate = vi.fn();
+	const mockLogout = vi.fn();
+	const toggleShowAccount = vi.fn();
+	const handleLogout = vi.fn();
 
 	const renderDropdown = () => {
 		render(
@@ -24,11 +24,11 @@ describe('Dropdown test', () => {
 	};
 
 	beforeEach(() => {
-		jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
+		vi.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
 	});
 
 	afterEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	test('renders without crashing', () => {

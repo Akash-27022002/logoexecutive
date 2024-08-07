@@ -1,6 +1,7 @@
 import React from 'react';
 import {fireEvent, render, screen, waitFor} from '@testing-library/react';
 import Demo from './Demo';
+import { describe, test, expect } from 'vitest';
 describe('Demo Component', () => {
 	test('renders a text input field and a button', () => {
 		render(<Demo />);

@@ -2,6 +2,7 @@ import React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 import Pricing from './Pricing';
 import {pricingCardsContent} from '../../constants';
+import { describe, test, expect} from 'vitest';
 
 describe('Pricing component', () => {
 	test('by default, Monthly should be selected', () => {

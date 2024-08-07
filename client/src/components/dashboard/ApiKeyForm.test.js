@@ -1,6 +1,6 @@
 import {render, fireEvent, screen} from '@testing-library/react';
 import ApiKeyForm from './ApiKeyForm';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('ApiKeyForm', () => {
 	it('renders correctly', () => {
 		render(
@@ -19,8 +19,8 @@ describe('ApiKeyForm', () => {
 	});
 
 	it('handles input value change', () => {
-		const setInputValue = jest.fn();
-		const setErrorMessage = jest.fn();
+		const setInputValue = vi.fn();
+		const setErrorMessage = vi.fn();
 		render(
 			<ApiKeyForm
 				inputValue=''
@@ -38,7 +38,7 @@ describe('ApiKeyForm', () => {
 	});
 
 	it('handles form submission', () => {
-		const handleGenerateKey = jest.fn();
+		const handleGenerateKey = vi.fn();
 		render(
 			<ApiKeyForm
 				inputValue=''

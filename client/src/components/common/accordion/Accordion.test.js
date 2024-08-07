@@ -1,8 +1,8 @@
 import {render, fireEvent, screen} from '@testing-library/react';
 import Accordion from './Accordion';
-
+import { describe, it, expect, vi } from 'vitest';
 describe('Accordion', () => {
-	const mockToggle = jest.fn();
+	const mockToggle = vi.fn();
 
 	beforeEach(() => {
 		mockToggle.mockReset();

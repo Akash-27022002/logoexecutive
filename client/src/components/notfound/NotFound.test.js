@@ -1,21 +1,21 @@
 import {fireEvent, render, screen} from '@testing-library/react';
-
+import { describe, test, expect, vi } from 'vitest';
 import * as router from 'react-router';
 import NotFound from './NotFound';
 
 describe('Page Not Found test', () => {
-	const navigate = jest.fn();
+	const navigate = vi.fn();
 
 	const renderNotFound = () => {
 		render(<NotFound></NotFound>);
 	};
 
 	beforeEach(() => {
-		jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
+		vi.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
 	});
 
 	afterEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	test('should show logo', () => {

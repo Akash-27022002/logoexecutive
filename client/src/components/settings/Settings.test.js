@@ -4,9 +4,10 @@ import {AuthContext} from '../../contexts/AuthContext';
 import {rest} from 'msw';
 import {server} from '../../mocks/server';
 import Settings from './Settings';
+import { describe, test, expect, vi } from 'vitest';
 
 describe('Settings component', () => {
-	const mockLogout = jest.fn();
+	const mockLogout = vi.fn();
 	const renderSettings = () => {
 		render(
 			<AuthContext.Provider value={{isAuthenticated: true, logout: mockLogout}}>

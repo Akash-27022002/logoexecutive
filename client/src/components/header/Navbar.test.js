@@ -2,6 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
 import Navbar from './Navbar';
+import {test, expect } from 'vitest';
 
 test('renders navbar with correct items', () => {
 	const navbarItems = [

@@ -3,10 +3,11 @@ import Header from './Header';
 import * as router from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import {AuthContext} from '../../contexts/AuthContext';
+import { describe, test, expect, vi } from 'vitest';
 
 describe('Header', () => {
-	const navigate = jest.fn();
-	const mockLogout = jest.fn();
+	const navigate = vi.fn();
+	const mockLogout = vi.fn();
 
 	const renderHeader = (isAuthenticated) => {
 		render(
@@ -24,7 +25,7 @@ describe('Header', () => {
 	};
 
 	beforeEach(() => {
-		jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
+		vi.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
 	});
 
 	test('should show logo', () => {
